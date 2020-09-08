@@ -1,37 +1,53 @@
 ﻿@model FutureValueModel
 @{
-    Layout = null;
-}
-<!DOCTYPE html>
-<html>
-<head>
-      <meta name="viewport" content="width=device-width"/>
-      <title>Future Value Calculator</title>
-<style>
+    ViewBag.Title = "Future Value Calculator";
+    }
+    <style>
+        body {
+            background-color: mediumseagreen;
+            color: whitesmoke;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-</style>
-</head>
-<body>
-    <h1>Future Value Calculator</h1>
-    <form asp-action ="Index" method="post">
-    <div>
-        <label asp-for="MonthlyInvestment">Monthly Investment:</label>
-        <input asp-for="MonthlyInvestment"/>
+        h1, h2 {
+            color: black;
+            font-family: 'Permanent Marker';
+        }
+
+        img {
+            width: 50%;
+            outline: 5px black solid;
+            outline-offset: 10px;
+            float: right;
+            margin-top: 10%;
+        }
+
+        footer {
+            background-color: black;
+        }
+    </style>
+    <div class="row">
+        <h1 class="col-md-12">Future Value Calculator</h1>
+        <form asp-action="Index" method="post" class="col-md-6">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div>
+                <label asp-for="MonthlyInvestment">Monthly Investment:</label>
+                <input asp-for="MonthlyInvestment" />
+            </div>
+            <div>
+                <label asp-for="YearlyInterestRate">Yearly Interest Rate:</label>
+                <input asp-for="YearlyInterestRate" />
+            </div>
+            <div>
+                <label asp-for="Years">Number of Years:</label>
+                <input asp-for="Years" />
+            </div>
+            <div>
+                <label>Future Value:</label>
+                <input value="@ViewBag.FV.ToString("C2")" readonly>
+            </div>
+            <button type="submit">Calculate</button>
+            <a asp-action="Index">Clear</a>
+        </form>
+        <img src="~/Images/money.jpg" alt="money growing" style="border-radius:20px;width:100%;" class="col-md-4"/>
     </div>
-    <div>
-        <label asp-for="YearlyInterestRate">Yearly Interest Rate:</label>
-        <input asp-for="YearlyInterestRate" />
-    </div>
-    <div>
-        <label asp-for="Years">Number of Years:</label>
-        <input asp-for="Years" />
-    </div>
-    <div>
-        <label>Future Value:</label>
-        <input value="@ViewBag.FV.ToString("C2")" readonly>
-    </div>
-    <button type="submit">Calculate</button>
-    <a asp-action="Index">Clear</a>
-    </form>
-</body>
-</html>
