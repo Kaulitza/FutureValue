@@ -10,7 +10,24 @@ using FutureValue.Models;
     [HttpPost]
     public IActionResult Index (FutureValueModel model)
     {
-        ViewBag.FV = model.CalculateFutureValue();
+        if (ModelState.IsValid)
+        {
+            ViewBag.FV = model.CalculateFutureValue();
+        }
+        else
+        {
+            ViewBag.FV = 0;
+        }
+
         return View(model);
     }
+    public IActionResult About()
+    {
+        return View();
     }
+    [HttpGet]
+    public IActionResult Contact()
+    {
+        return View();
+    }
+}
