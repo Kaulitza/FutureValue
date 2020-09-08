@@ -11,6 +11,6 @@ using FutureValue.Models;
     public IActionResult Index (FutureValueModel model)
     {
         ViewBag.FV = model.CalculateFutureValue();
-        return View(model);01
+        return View(model);
     }
     }
