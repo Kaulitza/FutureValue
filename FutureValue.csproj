@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Views\Shared\" />
+    <Folder Include="wwwroot\Images\" />
+    <Folder Include="wwwroot\lib\bootstrap\dist\" />
   </ItemGroup>
 
 </Project>
